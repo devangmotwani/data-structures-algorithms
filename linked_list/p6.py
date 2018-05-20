@@ -5,13 +5,26 @@ P6. Add two linked lists from right to left
 import p1
 
 class Node(p1.Node):
+    def __init__(self,val):
+        p1.Node.__init__(self,val)
+        self.size=0
+
     def length(self):
-        length = 1
-        node = self
-        while node != None:
-            node = node.next
-            length += 1
-        return length
+        if self.size!=0:
+            return self.size
+        if self.next==None:
+            self.size=1
+            return self.size
+        temp=self.next
+        if temp.size!=0:
+            self.size=1+temp.size
+            return self.size
+        node =self
+        length=1
+        if temp!=None and temp.size==0:
+            length+=temp.length()
+            self.size=length
+            return self.size
 
 def pad_zeros(n,node):
     head = node

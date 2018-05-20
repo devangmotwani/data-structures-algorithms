@@ -7,7 +7,7 @@ class Node(p0.Node):
     def traverse(self):
         node = self
         while node != None:
-            print node.val
+            print (node.val)
             node = node.next
 
 if __name__ == "__main__":
